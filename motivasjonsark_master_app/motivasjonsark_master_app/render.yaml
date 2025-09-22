@@ -2,7 +2,8 @@ services:
   - type: web
     name: motivasjonsark-master
     env: node
-    plan: free                # or 'starter' if you don’t want sleep
+    plan: free
+    rootDir: motivasjonsark_master_app/motivasjonsark_master_app
     buildCommand: "npm install"
     startCommand: "node server.js"
     envVars:
@@ -11,9 +12,9 @@ services:
       - key: PORT
         value: 4000
       - key: ADMIN_TOKEN
-        generateValue: true   # Render will generate a random token
+        generateValue: true
       - key: CORS_ORIGIN
-        value: true           # change to your client URL later
+        value: true
       - key: DB_FILE
         value: /opt/render/project/src/data.db
     disk:
